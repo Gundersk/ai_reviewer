@@ -1,0 +1,7 @@
+/vendor/
+.env
+.php-error.log
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
