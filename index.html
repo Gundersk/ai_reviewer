@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI-Отзыв — генератор</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Генератор AI-отзыва</h1>
+
+    <form id="reviewForm" class="card" novalidate>
+      <div class="field">
+        <label for="name">Название товара <span class="req">*</span></label>
+        <input id="name" name="name" type="text" placeholder="Кофеварка DeLonghi" required />
+      </div>
+
+      <div class="field">
+        <label for="description">Описание товара <span class="req">*</span></label>
+        <textarea id="description" name="description" rows="4" placeholder="Автоматическая кофеварка с капучинатором, 15 бар" required></textarea>
+      </div>
+
+      <div class="field">
+        <label for="rating">Оценка <span class="req">*</span></label>
+        <select id="rating" name="rating" required>
+          <option value="" selected disabled>Выберите…</option>
+          <option value="5">5 ★★★★★</option>
+          <option value="4">4 ★★★★☆</option>
+          <option value="3">3 ★★★☆☆</option>
+          <option value="2">2 ★★☆☆☆</option>
+          <option value="1">1 ★☆☆☆☆</option>
+        </select>
+      </div>
+
+      <!-- Необязательные пределы длины, маппятся на low_limit/up_limit -->
+      <div class="grid">
+        <div class="field">
+          <label for="low_limit">Мин. слов (опц.)</label>
+          <input id="low_limit" name="low_limit" type="number" min="0" max="500" placeholder="0" />
+        </div>
+        <div class="field">
+          <label for="up_limit">Макс. слов (опц.)</label>
+          <input id="up_limit" name="up_limit" type="number" min="1" max="500" placeholder="50" />
+        </div>
+      </div>
+
+      <button id="submitBtn" type="submit">Сгенерировать отзыв</button>
+      <div id="loader" class="loader" aria-live="polite" hidden>Генерация…</div>
+    </form>
+
+    <section id="resultCard" class="card hidden">
+      <div class="result-header">
+        <h2>Сгенерированный отзыв</h2>
+        <button id="copyBtn" type="button" class="secondary">Скопировать</button>
+      </div>
+      <pre id="resultText" class="result"></pre>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

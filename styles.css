@@ -1,0 +1,102 @@
+:root {
+  --bg: #0b0d12;
+  --card: #11151c;
+  --border: #1f2430;
+  --text: #e9eef5;
+  --muted: #98a2b3;
+  --accent: #5b9cff;
+  --accent-pressed: #3f7ee1;
+  --ring: rgba(91,156,255,0.35);
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: radial-gradient(1000px 600px at 70% -100px, rgba(91,156,255,0.15), transparent) var(--bg);
+  color: var(--text);
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.container {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 { font-size: 28px; margin: 0 0 18px; }
+h2 { margin: 0; font-size: 20px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.field { margin-bottom: 14px; }
+.field label { display:block; margin-bottom: 8px; color: var(--muted); font-size: 14px; }
+.field .req { color: #ff8e8e; }
+
+input[type="text"], input[type="number"], textarea, select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0e131a;
+  color: var(--text);
+  outline: none;
+  transition: border 120ms, box-shadow 120ms;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+.grid { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+@media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+
+button {
+  appearance: none;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 120ms, transform 60ms;
+}
+button:hover { background: var(--accent-pressed); }
+button:active { transform: translateY(1px); }
+button.secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.loader {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.result {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+.hidden { display: none; }
